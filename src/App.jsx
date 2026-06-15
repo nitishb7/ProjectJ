@@ -1,7 +1,7 @@
 import './App.css'
-import FeaturedProducts from './components/FeaturedProducts'
 import HeroSlider from './components/Heroslider'
 import Navbar from './components/Navbar'
+import ShopCollections from './components/ShopCollections'
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <div className='app'>
       <Navbar></Navbar>
       <HeroSlider></HeroSlider>
-      <FeaturedProducts></FeaturedProducts>
+      <ShopCollections></ShopCollections>
     </div>
   )
 }
