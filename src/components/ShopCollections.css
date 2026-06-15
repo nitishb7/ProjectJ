@@ -47,97 +47,70 @@
 }
 
 .collection-card {
+  position: relative;
   min-width: 0;
+  height: 430px;
   overflow: hidden;
   border-radius: 22px;
-}
-
-.collection-card--fan {
-  background: #e6ebf6;
-}
-
-.collection-card--retro {
-  background: #e9e5df;
-}
-
-.collection-card--player {
-  background: #e3e9e7;
+  background: #e8effb;
 }
 
 .collection-image {
-  height: 290px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .collection-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
-  transition: transform 0.3s ease;
-}
-
-.collection-card--fan .collection-image,
-.collection-card--retro .collection-image {
-  padding: 6px;
-}
-
-.collection-card--fan .collection-image img,
-.collection-card--retro .collection-image img {
+  object-fit: cover;
   object-position: center;
+  transition: transform 0.3s ease;
 }
 
 .collection-card:hover .collection-image img {
   transform: scale(1.04);
 }
 
-.collection-content {
-  padding: 22px 24px 25px;
+.collection-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 32px 24px;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 42, 102, 0.04) 25%,
+    rgba(11, 42, 102, 0.76) 100%
+  );
+  text-align: center;
 }
 
-.collection-card--fan .collection-content {
-  background: #d9e1f1;
-}
-
-.collection-card--retro .collection-content {
-  background: #ddd7cf;
-}
-
-.collection-card--player .collection-content {
-  background: #d5dfdc;
-}
-
-.collection-content h3 {
-  color: #111827;
-  font-size: 21px;
-  line-height: 1.25;
-}
-
-.collection-content p {
-  min-height: 44px;
-  margin-top: 8px;
-  color: #596273;
-  font-size: 14px;
-  line-height: 1.55;
+.collection-overlay h3 {
+  color: #ffffff;
+  font-size: 27px;
+  line-height: 1.2;
+  text-shadow: 0 2px 14px rgba(4, 18, 48, 0.35);
 }
 
 .shop-collection-btn {
-  margin-top: 18px;
-  padding: 0;
-  background: transparent;
-  color: #2454bd;
-  font-size: 13px;
+  min-width: 132px;
+  margin-top: 20px;
+  border-radius: 999px;
+  padding: 11px 22px;
+  background: #ffffff;
+  color: #173f91;
+  font-size: 14px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
-.shop-collection-btn svg {
-  transition: transform 0.2s ease;
-}
-
-.shop-collection-btn:hover svg {
-  transform: translateX(3px);
+.shop-collection-btn:hover {
+  background: #edf2fc;
+  transform: translateY(-2px);
 }
 
 .view-collections-btn:focus-visible,
@@ -151,8 +124,8 @@
     grid-template-columns: 1fr;
   }
 
-  .collection-image {
-    height: 340px;
+  .collection-card {
+    height: 500px;
   }
 }
 
@@ -174,7 +147,7 @@
     max-width: 135px;
   }
 
-  .collection-image {
-    height: 280px;
+  .collection-card {
+    height: 420px;
   }
 }

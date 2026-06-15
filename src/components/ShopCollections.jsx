@@ -2,29 +2,26 @@ import { ArrowRight } from "lucide-react";
 import "./ShopCollections.css";
 
 import fanSlide from "../assets/FanSlide.png";
+import playerSlide from "../assets/PlayerSide.jpg";
 import retroSlide from "../assets/Retro.jpg";
-import slide3 from "../assets/slide3.png";
 
 const collections = [
   {
     id: "fan-editions",
     name: "Fan Editions",
-    description: "Comfortable everyday jerseys made for loyal supporters.",
     image: fanSlide,
     theme: "fan",
   },
   {
     id: "retro-classics",
     name: "Retro Classics",
-    description: "Iconic designs inspired by unforgettable football eras.",
     image: retroSlide,
     theme: "retro",
   },
   {
     id: "player-editions",
     name: "Player Editions",
-    description: "Premium match-style jerseys with a performance-focused fit.",
-    image: slide3,
+    image: playerSlide,
     theme: "player",
   },
 ];
@@ -54,16 +51,14 @@ function ShopCollections() {
               <img src={collection.image} alt="" />
             </div>
 
-            <div className="collection-content">
+            <div className="collection-overlay">
               <h3>{collection.name}</h3>
-              <p>{collection.description}</p>
               <button
                 className="shop-collection-btn"
                 type="button"
                 aria-label={`Shop ${collection.name}`}
               >
-                Shop Collection
-                <ArrowRight size={17} aria-hidden="true" />
+                Shop
               </button>
             </div>
           </article>
