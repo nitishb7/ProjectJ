@@ -29,15 +29,21 @@
 }
 
 .view-collections-btn {
-  border-radius: 6px;
+  min-height: 42px;
+  border-radius: 22px;
   background: #3769d6;
   color: #ffffff;
-  padding: 11px 16px;
-  font-size: 12px;
+  padding: 11px 18px;
+  font-size: 13px;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .view-collections-btn:hover {
   background: #2454bd;
+  transform: translateY(-1px);
 }
 
 .collections-grid {
@@ -144,7 +150,9 @@
 
   .view-collections-btn {
     flex: 0 0 auto;
-    max-width: 135px;
+    min-height: 40px;
+    padding: 10px 14px;
+    font-size: 11px;
   }
 
   .collection-card {
