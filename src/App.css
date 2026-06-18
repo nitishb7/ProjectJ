@@ -1,16 +1,14 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
-  background: #f4f6fb;
+body {
+  background: #ffffff;
   font-family: Inter, system-ui, sans-serif;
 }
 
-.app{
-  max-width: 1180px;
-  margin: 0 auto;
-  padding:0 24px;
+.app {
+  width: 100%;
 }

@@ -1,19 +1,35 @@
-import './App.css'
-import HeroSlider from './components/Heroslider'
-import Navbar from './components/Navbar'
-import SaleOffer from './components/SaleOffer'
-import ShopCollections from './components/ShopCollections'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import HeroSlider from "./components/Heroslider";
+import ShopCollections from "./components/ShopCollections";
+import SaleOffer from "./components/SaleOffer";
+import Footer from "./components/Footer";
+import ProductsPage from "./pages/ProductsPage";
 
-function App() {
-
+function HomePage() {
   return (
-    <div className='app'>
-      <Navbar></Navbar>
-      <HeroSlider></HeroSlider>
-      <ShopCollections></ShopCollections>
-      <SaleOffer></SaleOffer>
-    </div>
-  )
+    <>
+      <HeroSlider />
+      <ShopCollections />
+      <SaleOffer />
+    </>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="app">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;

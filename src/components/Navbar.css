@@ -1,5 +1,23 @@
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   width: 100%;
+  background: #ffffff;
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar--scrolled {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.07);
+}
+
+.navbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px;
   height: 72px;
   display: flex;
   align-items: center;
@@ -11,16 +29,16 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
 }
 
-.navbar-logo h2 {
+.navbar-logo-text {
   font-size: 20px;
   font-weight: 900;
   letter-spacing: 6px;
   color: #3769d6;
 }
 
-/* Optional logo icon */
 .logo-icon {
   display: flex;
   align-items: flex-end;
@@ -35,20 +53,10 @@
   border-radius: 8px;
 }
 
-.logo-icon span:nth-child(1) {
-  height: 16px;
-}
-
-.logo-icon span:nth-child(2) {
-  height: 10px;
-}
-
-.logo-icon span:nth-child(3) {
-  height: 16px;
-}
-.logo-icon span:nth-child(4) {
-  height: 24px;
-}
+.logo-icon span:nth-child(1) { height: 16px; }
+.logo-icon span:nth-child(2) { height: 10px; }
+.logo-icon span:nth-child(3) { height: 16px; }
+.logo-icon span:nth-child(4) { height: 24px; }
 
 /* Center nav links */
 .navbar-links {
@@ -62,7 +70,7 @@
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
-  transition: 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .navbar-links a:hover {
@@ -76,19 +84,18 @@
   gap: 14px;
 }
 
-/* Log In button */
 .login-btn {
   background: #3769d6;
   color: white;
   border: 2px solid #3769d6;
-  padding: 8px 15px;
+  padding: 8px 18px;
   border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
-
 
 .login-btn:hover {
   background: #2454bd;
@@ -96,17 +103,17 @@
   transform: translateY(-1px);
 }
 
-/* Sign Up button: white background + black border */
 .signup-btn {
   background: #ffffff;
   color: #111827;
   border: 2px solid #111827;
-  padding: 8px 15px;
+  padding: 8px 18px;
   border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .signup-btn:hover {
@@ -115,7 +122,6 @@
   transform: translateY(-1px);
 }
 
-/* Cart button */
 .cart-btn {
   width: 40px;
   height: 40px;
@@ -126,7 +132,7 @@
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .cart-btn:hover {
@@ -139,41 +145,50 @@
   color: white;
 }
 
-/* Mobile responsive */
+/* Tablet */
 @media (max-width: 900px) {
   .navbar {
-    height: auto;
-    padding: 18px 0;
-    gap: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .navbar--scrolled {
+    border-bottom-color: transparent;
+  }
+
+  .navbar-inner {
+    height: 60px;
+    padding: 0 24px;
   }
 
   .navbar-links {
     display: none;
   }
 
-  .navbar-logo h2 {
+  .navbar-logo-text {
     font-size: 16px;
     letter-spacing: 4px;
   }
 }
 
-@media (max-width: 520px) {
-  .navbar-actions {
-    gap: 8px;
-  }
-
-  .login-btn,
+/* Large mobile */
+@media (max-width: 640px) {
   .signup-btn {
     display: none;
   }
+}
 
-  .cart-btn {
-    width: 42px;
-    height: 42px;
+/* Small mobile */
+@media (max-width: 400px) {
+  .navbar-inner {
+    padding: 0 16px;
   }
 
-  .navbar-logo h2 {
-    font-size: 14px;
-    letter-spacing: 3px;
+  .login-btn {
+    display: none;
+  }
+
+  .navbar-logo-text {
+    font-size: 13px;
+    letter-spacing: 2.5px;
   }
 }

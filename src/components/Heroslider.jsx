@@ -45,7 +45,6 @@ function HeroSlider() {
     const slider = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 3500);
-
     return () => clearInterval(slider);
   }, []);
 
@@ -57,23 +56,19 @@ function HeroSlider() {
       >
         {slides.map((slide) => (
           <div className="hero-slide" key={slide.id}>
-            <div className="hero-content">
-              <p className="hero-eyebrow">{slide.eyebrow}</p>
-              <h1>{slide.title}</h1>
-              <p className="hero-description">{slide.description}</p>
-
-              <div className="hero-buttons">
-                <button className="hero-primary-btn">
-                  {slide.primaryButton}
-                </button>
-                <button className="hero-secondary-btn">
-                  {slide.secondaryButton}
-                </button>
+            <div className="hero-inner">
+              <div className="hero-content">
+                <p className="hero-eyebrow">{slide.eyebrow}</p>
+                <h1>{slide.title}</h1>
+                <p className="hero-description">{slide.description}</p>
+                <div className="hero-buttons">
+                  <button className="hero-primary-btn">{slide.primaryButton}</button>
+                  <button className="hero-secondary-btn">{slide.secondaryButton}</button>
+                </div>
               </div>
-            </div>
-
-            <div className="hero-image">
-              <img src={slide.image} alt={slide.title} />
+              <div className="hero-image">
+                <img src={slide.image} alt={slide.title} />
+              </div>
             </div>
           </div>
         ))}
@@ -85,7 +80,8 @@ function HeroSlider() {
             key={index}
             className={currentSlide === index ? "dot active" : "dot"}
             onClick={() => setCurrentSlide(index)}
-          ></button>
+            aria-label={`Go to slide ${index + 1}`}
+          />
         ))}
       </div>
     </section>
